@@ -1,9 +1,10 @@
+// NAVBAR Component
 Vue.component('app-nav', {
     template: `
       <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-        <img src="resources/logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <img src="/resources/logo.png" alt="Money Mate" width="112" height="28">
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -12,7 +13,7 @@ Vue.component('app-nav', {
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a class="navbar-item" href="./pages/account.html">
             View Account
           </a>
           <a class="navbar-item">
