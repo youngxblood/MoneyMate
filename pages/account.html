@@ -8,10 +8,44 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div id="app">
-        <app-nav></app-nav>
+  <div id="app">
+    <app-nav></app-nav>
+  </div>
+
+
+
+  <div class="columns">
+    <div class="column">
+      <p class="notification is-info has-text-centered"><strong>Account Balance:</strong>
+        <br>
+        Here is some example text.
+        <br>
+        <panel>$540</panel>
+        <br>
+      </p>
     </div>
-    TEST
+    <div class="column">
+      <p class="notification is-success has-text-centered"><strong>Monthly Goal:</strong>
+        <br>
+        Here is your set goal for the month.
+        <br>
+        <panel>$540</panel>
+      </p>
+    </div>
+    <div class="column">
+      <p class="notification is-warning has-text-centered"><strong>Monthly Difference:</strong>
+        <br>
+        Here is the difference between balance and monthly goal.
+        <br>
+        <panel>$540</panel>
+      </p>
+    </div>
+<!--     <div class="column">
+      <p class="notification is-danger has-text-centered">Fourth column</p>
+    </div> -->
+  </div>
+
+
 
 
 
@@ -20,6 +54,6 @@
   <script>
       // You can also require other files to run in this process
       require('../renderer.js')
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+  </html>
