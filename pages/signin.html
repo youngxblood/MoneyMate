@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/vue@2.5.2/dist/vue.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.css">
   <link rel="stylesheet" href="/styles.css">
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 </head>
 <body>
   <div id="app">
@@ -39,17 +40,18 @@
       <div class="field">
         <label class="label">Email Address</label>
         <div class="control">
-          <input class="input" type="text" placeholder="youremail@email.com" required>
+          <input class="input" type="text" placeholder="youremail@email.com" id="email" required>
         </div>
       </div>
 
       <div class="field">
         <label class="label">Password</label>
         <div class="control">
-          <input class="input" type="text" required>
+          <input class="input" type="password" id="password" required>
         </div>
       </div>
-      <input type="button" id="btn" value="Submit" class="button is-dark is-pulled-right" />
+      <input type="button" id="signUpBtn" value="Sign Up" class="button is-dark" />
+      <input type="button" id="signInBtn" value="Sign In" class="button is-dark" />
     </div>
   </form>
 </div>
@@ -58,9 +60,10 @@
 
 <script>
   require('../js/renderer.js')
-  document.getElementById("btn").addEventListener("click", () => {
-    require('../js/connect.js')
-  }, false);
+  require('../js/auth.js')
+  // document.getElementById("btn").addEventListener("click", () => {
+  //   require('../js/connect.js')
+  // }, false);
 </script>
 </body>
 </html>
