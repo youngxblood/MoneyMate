@@ -10,9 +10,9 @@
 <body>
   <div id="app">
     <app-nav></app-nav>
-</div>
+  </div>
 
-<!-- HERO -->
+  <!-- HERO -->
 
   <section class="hero is-link">
     <div class="hero-body">
@@ -27,22 +27,63 @@
     </div>
   </section>
 
-<!-- CONTENT -->
+  <!-- CONTENT -->
 
-<div class="container">
-  <div class="notification">
-    This container is <strong>centered</strong> on desktop.
-    <input type="button" id="btn" value="Connect to mysql" class="button is-dark is-pulled-right" />
+  <div class="columns">
+    <div class="column is-12"></div>
+  </div>
+
+  <div class="container columns">
+    <div class="notification column is-6 is-offset-3">
+
+      <form action="">
+        <div class="field">
+          <label class="label">First Name</label>
+          <div class="control">
+            <input class="input" type="text" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Last Name</label>
+          <div class="control">
+            <input class="input" type="text" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email Address</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="youremail@email.com" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="text" required>
+          </div>
+        </div>
+        <input type="button" id="btn" value="Submit" class="button is-dark is-pulled-right" />
+      </div>
+    </form>
   </div>
 </div>
 
 
 
 <script>
-  require('../renderer.js')
+  require('../js/renderer.js')
+
   document.getElementById("btn").addEventListener("click", () => {
-      require('../connect.js')
+    require('../js/connect.js')
   }, false);
+
+  require('../js/login-register.js');
+  connection.end(() => {
+   console.log("Connection succesfully closed");
+ });
+
 </script>
 </body>
 </html>

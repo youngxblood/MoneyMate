@@ -1,13 +1,13 @@
 {
-  "name": "performancetracker",
+  "name": "moneymate",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A lightweight app to help track your money.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "dist": "build"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "",
   "keywords": [
     "Electron",
     "quick",
@@ -15,7 +15,7 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "Mark Steffensen",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "~1.7.8"

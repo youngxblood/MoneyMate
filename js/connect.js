@@ -1,19 +1,19 @@
 
-    var mysql = require("mysql");
-    var connection = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: null,
-        database: "moneymate"
-    });
+var mysql = require("mysql");
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: null,
+    database: "moneymate"
+});
 
-    connection.connect((err) => {
-        if(err){
-            return console.log(err.stack);
-        }
+connection.connect((err) => {
+    if(err){
+        return console.log(err.stack);
+    }
 
-        console.log("Connection Succesful!");
-    });
+    console.log("Connection Succesful!");
+});
 
         // Here the queries will be executed
         $queryString = 'SELECT * FROM `users` WHERE `first_name` LIKE "Bruce"';
