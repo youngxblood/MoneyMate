@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Money Mate</title>
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script type="text/javascript" src="../js/jquery-3.2.1.min"></script>
   <script src="https://unpkg.com/vue@2.5.2/dist/vue.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
   <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <!-- Insert this line after script imports -->
+  <script>if (window.module) module = window.module;</script>
 </head>
 <body>
 
@@ -64,9 +68,24 @@
     </article>
   </div>
 
+  <div id="auth">
+    <p>
+      {{ status }}
+    </p>
+  </div>
+
   <script>
       // You can also require other files to run in this process
-      require('../js/renderer.js')
+      require('../js/renderer.js');
+
+      var status = 'Signed In.';
+
+      new Vue({
+        el: '#auth',
+        data: {
+          status: status
+        }
+      })
     </script>
   </body>
   </html>

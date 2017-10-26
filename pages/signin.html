@@ -3,67 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <title>Money Mate</title>
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
   <script src="https://unpkg.com/vue@2.5.2/dist/vue.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.css">
   <link rel="stylesheet" href="/styles.css">
   <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <!-- Insert this line after script imports -->
+  <script>if (window.module) module = window.module;</script>
 </head>
 <body>
   <div id="app">
     <app-nav></app-nav>
   </div>
 
+
+
   <!-- HERO -->
-
-  <section class="hero is-info">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title is-1">
-          LOGIN
-        </h1>
-        <h2 class="subtitle">
-          Login to your account below.
-        </h2>
+  <div id="handle" class="">
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">
+            LOGIN
+          </h1>
+          <h2 class="subtitle">
+            Login to your account below.
+          </h2>
+        </div>
       </div>
+    </section>
+
+    <!-- CONTENT -->
+
+    <div class="columns">
+      <div class="column is-12"></div>
     </div>
-  </section>
 
-  <!-- CONTENT -->
+    <div class="container columns">
+      <div class="notification column is-6 is-offset-3">
 
-  <div class="columns">
-    <div class="column is-12"></div>
+        <div class="field">
+          <label class="label">Email Address</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="youremail@email.com" id="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="password" id="password" required>
+          </div>
+        </div>
+        <input type="button" id="signUpBtn" value="Sign Up" class="button is-dark" />
+        <input type="button" id="signInBtn" value="Sign In" class="button is-dark" />
+        <input type="button" id="signOutBtn" value="Sign Out" class="button is-dark is-hidden"/>
+      </div>
+    </form>
   </div>
-
-  <div class="container columns">
-    <div class="notification column is-6 is-offset-3">
-
-      <div class="field">
-        <label class="label">Email Address</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="youremail@email.com" id="email" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Password</label>
-        <div class="control">
-          <input class="input" type="password" id="password" required>
-        </div>
-      </div>
-      <input type="button" id="signUpBtn" value="Sign Up" class="button is-dark" />
-      <input type="button" id="signInBtn" value="Sign In" class="button is-dark" />
-    </div>
-  </form>
 </div>
-</div>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
 
 <script>
-  require('../js/renderer.js')
-  require('../js/auth.js')
-  // document.getElementById("btn").addEventListener("click", () => {
-  //   require('../js/connect.js')
-  // }, false);
+  require('../js/renderer.js');
+  require('../js/auth.js');
+
+  console.log(firebase.auth().currentUser);
+
+  if(firebase.auth().currentUser != null){
+    $('#handle').addClass('is-hidden');
+    console.log('Removed content.');
+  } else {
+    $('#handle').removeClass('is-hidden');
+  }
+
 </script>
 </body>
 </html>

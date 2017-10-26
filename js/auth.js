@@ -13,29 +13,60 @@
   var signInBtn = document.getElementById('signInBtn');
 
   signUpBtn.addEventListener('click', function(){
-      var emailField = document.getElementById('email').value;
-      var passwordField = document.getElementById('password').value;
+    var emailField = document.getElementById('email').value;
+    var passwordField = document.getElementById('password').value;
 
-      firebase.auth().createUserWithEmailAndPassword(emailField, passwordField).then(function(){
-        alert('User created!');
-      }).catch(function(error){
-         if(error != null){
-            console.log(error.message);
-            return;
-         }
-         alert('User Created!!!!');
-      })
+    firebase.auth().createUserWithEmailAndPassword(emailField, passwordField).then(function(){
+      alert('User created!');
+    }).catch(function(error){
+     if(error != null){
+      console.log(error.message);
+      return;
+    }
+    alert('User Created!!!!');
+  })
   });
 
-   signInBtn.addEventListener('click', function(){
-      var emailField = document.getElementById('email').value;
-      var passwordField = document.getElementById('password').value;
-      firebase.auth().signInWithEmailAndPassword(emailField, passwordField).then(function(){
-        document.location.href = 'index.html';
-      }).catch(function(error){
-        if(error != null){
-          console.log(error.message);
-          return;
-        }
-      })
+  // signInBtn.addEventListener('click', function(){
+  //   var emailField = document.getElementById('email').value;
+  //   var passwordField = document.getElementById('password').value;
+  //   firebase.auth().signInWithEmailAndPassword(emailField, passwordField).then(function(){
+  //     document.location.href = 'index.html';
+  //   }).catch(function(error){
+  //     if(error != null){
+  //       console.log(error.message);
+  //       return;
+  //     }
+  //   })
+  // });
+
+  signInBtn.addEventListener('click', function(){
+    var emailField = document.getElementById('email').value;
+    var passwordField = document.getElementById('password').value;
+    firebase.auth().signInWithEmailAndPassword(emailField, passwordField).catch(function(error){
+      if(error != null){
+        console.log(error.message);
+        return;
+      }
+    })
+  });
+
+  signOutBtn.addEventListener('click', e => {
+    firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
+});
+
+  firebase.auth().onAuthStateChanged(firebaseUser => {
+    if(firebaseUser) {
+      console.log(firebaseUser);
+      signOutBtn.classList.remove('is-hidden');
+      signInBtn.classList.add('is-hidden');
+    } else {
+      console.log('User is not logged in.');
+      signOutBtn.classList.add('is-hidden');
+      signInBtn.classList.remove('is-hidden');
+    }
   });
