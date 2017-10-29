@@ -27,19 +27,6 @@
   })
   });
 
-  // signInBtn.addEventListener('click', function(){
-  //   var emailField = document.getElementById('email').value;
-  //   var passwordField = document.getElementById('password').value;
-  //   firebase.auth().signInWithEmailAndPassword(emailField, passwordField).then(function(){
-  //     document.location.href = 'index.html';
-  //   }).catch(function(error){
-  //     if(error != null){
-  //       console.log(error.message);
-  //       return;
-  //     }
-  //   })
-  // });
-
   signInBtn.addEventListener('click', function(){
     var emailField = document.getElementById('email').value;
     var passwordField = document.getElementById('password').value;
@@ -62,11 +49,18 @@
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser) {
       console.log(firebaseUser);
+      $('#handle').addClass('is-hidden');
       signOutBtn.classList.remove('is-hidden');
       signInBtn.classList.add('is-hidden');
+      $('#auth').attr('href', 'logout.html');
+      $('#auth').HTML('Logout');
     } else {
       console.log('User is not logged in.');
+      $('#handle').removeClass('is-hidden');
       signOutBtn.classList.add('is-hidden');
       signInBtn.classList.remove('is-hidden');
+      $('#auth').attr('href', 'signin.html');
+      $('#auth').HTML('Sign In');
     }
   });
+

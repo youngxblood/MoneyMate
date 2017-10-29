@@ -66,8 +66,8 @@ Vue.component('app-nav', {
             </div>
          </div>
          </div>
-         <div id="auth" class="navbar-end">
-            <a href="signin.html" class="navbar-item">Account</a>
+         <div class="navbar-end">
+            <a id="auth" href="signin.html" class="navbar-item">Account</a>
          </div>
       </nav>
   `

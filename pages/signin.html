@@ -20,7 +20,7 @@
 
 
   <!-- HERO -->
-  <div id="handle" class="">
+  <div  class="">
     <section class="hero is-info">
       <div class="hero-body">
         <div class="container">
@@ -40,8 +40,10 @@
       <div class="column is-12"></div>
     </div>
 
+    <!-- LOGIN PORTION -->
+
     <div class="container columns">
-      <div class="notification column is-6 is-offset-3">
+      <div id="handle" class="notification column is-6 is-offset-3">
 
         <div class="field">
           <label class="label">Email Address</label>
@@ -58,27 +60,18 @@
         </div>
         <input type="button" id="signUpBtn" value="Sign Up" class="button is-dark" />
         <input type="button" id="signInBtn" value="Sign In" class="button is-dark" />
-        <input type="button" id="signOutBtn" value="Sign Out" class="button is-dark is-hidden"/>
       </div>
-    </form>
+    </div>
+    <button class="button is-dark is-hidden" id="signOutBtn">Sign Out</button>
+
+
   </div>
+
 </div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</body>
 
 <script>
   require('../js/renderer.js');
   require('../js/auth.js');
-
-  console.log(firebase.auth().currentUser);
-
-  if(firebase.auth().currentUser != null){
-    $('#handle').addClass('is-hidden');
-    console.log('Removed content.');
-  } else {
-    $('#handle').removeClass('is-hidden');
-  }
-
 </script>
 </body>
 </html>
