@@ -53,14 +53,14 @@
       signOutBtn.classList.remove('is-hidden');
       signInBtn.classList.add('is-hidden');
       $('#auth').attr('href', 'logout.html');
-      $('#auth').HTML('Logout');
+      $('#auth').html('Logout');
     } else {
       console.log('User is not logged in.');
       $('#handle').removeClass('is-hidden');
       signOutBtn.classList.add('is-hidden');
       signInBtn.classList.remove('is-hidden');
       $('#auth').attr('href', 'signin.html');
-      $('#auth').HTML('Sign In');
+      $('#auth').html('Sign In');
     }
   });
 
